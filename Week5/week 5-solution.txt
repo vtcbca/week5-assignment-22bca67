@@ -1,0 +1,100 @@
+
+
+import csv
+
+#create and write the records in csv file
+with open("c://sqlite3//student_csv.csv","w",newline="")as stud:
+    write=csv.writer(stud)
+    #create header of a csv file
+    header=['S_Id','S_Name','City','Contact']
+    write.writerow(header)
+    #5 record's insert directly in csv file
+    rows=[
+          [1,'Dixit','Surat',9876543210],
+          [2,'Ravi','Kadod',1234567890],
+          [3,'Om','Bardoli',6756564764],
+          [4,'Rohit','Gangadhara',1837550342],
+          [5,'Dhruv','songadh',8462375571]
+         ]
+    write.writerows(rows)
+    print('Record Inserted successful')
+    
+    #5 records insert using user input
+    #create empty list
+    l=[]
+    #iterate the loop for entering multiple records
+    for record in range(5):
+        n=int(input('Enter Student ID:'))
+        name=input('Enter Student Name: ')
+        city=input('Enter City Name: ')
+        contact=int(input('Enter Contact Number:'))
+        #append records in a variable 'store'
+        store=[n,name,city,contact]
+        #append the records in list
+        l.append(store)
+        #write the rows in a csv file
+    write.writerows(l)
+    print('Record Inserted successful')
+
+#read csv file using DictrReader()
+with open("c://sqlite3//student_csv.csv","r")as stud:
+    r=csv.DictReader(stud)
+    for i in r:
+        print(i)
+print()
+
+Output:-
+--------------------------------------------------------------------------------------------------------
+Enter Student ID:6
+Enter Student Name: Kishan
+Enter City Name: Bardoli
+Enter Contact Number:3744375785
+Enter Student ID:7
+Enter Student Name: Akash
+Enter City Name: Kadodra
+Enter Contact Number:1357924680
+Enter Student ID:8
+Enter Student Name: Krish
+Enter City Name: Bagumra
+Enter Contact Number:2468013579
+Enter Student ID:9
+Enter Student Name: Mayank
+Enter City Name: Surat
+Enter Contact Number:1235674892
+Enter Student ID:10
+Enter Student Name: Akshat
+Enter City Name: Bardoli
+Enter Contact Number:1245789531
+Record Inserted successful
+
+{'S_Id': '1', 'S_Name': 'Dixit', 'City': 'Surat', 'Contact': '9876543210'}	          
+{'S_Id': '2', 'S_Name': 'Ravi', 'City': 'Kadod', 'Contact': '1234567890'}		
+{'S_Id': '3', 'S_Name': 'Om', 'City': 'Bardoli', 'Contact': '6756564764'}
+{'S_Id': '4', 'S_Name': 'Rohit', 'City': 'Gangadhara', 'Contact': '1837550342'}
+{'S_Id': '5', 'S_Name': 'Dhruv', 'City': 'songadh', 'Contact': '8462375571'}
+{'S_Id': '6', 'S_Name': 'Kishan', 'City': 'Bardoli', 'Contact': '3744375785'}
+{'S_Id': '7', 'S_Name': 'Akash', 'City': 'Kadodra', 'Contact': '1357924680'}
+{'S_Id': '8', 'S_Name': 'Krish', 'City': 'Bagumra', 'Contact': '2468013579'}
+{'S_Id': '9', 'S_Name': 'Mayank', 'City': 'Surat', 'Contact': '1235674892'}
+{'S_Id': '10', 'S_Name': 'Akshat', 'City': 'Bardoli', 'Contact': '1245789531'}
+---------------------------------------------------------------------------------------------------
+#read csv file using Reader().
+with open("c://sqlite3//student_csv.csv","r",newline="")as stud:
+    read=csv.reader(stud)
+    for i in read:
+        print(i)
+    
+Output:-
+---------------------------------------------------
+['S_Id', 'S_Name', 'City', 'Contact']
+['1', 'Dixit', 'Surat', '9876543210']
+['2', 'Ravi', 'Kadod', '1234567890']
+['3', 'Om', 'Bardoli', '6756564764']
+['4', 'Rohit', 'Gangadhara', '1837550342']
+['5', 'Dhruv', 'songadh', '8462375571']
+['6', 'Kishan', 'Bardoli', '3744375785']
+['7', 'Akash', 'Kadodra', '1357924680']
+['8', 'Krish', 'Bagumra', '2468013579']
+['9', 'Mayank', 'Surat', '1235674892']
+['10', 'Akshat', 'Bardoli', '1245789531']
+----------------------------------------------------
